@@ -31,6 +31,16 @@ taskAdd.addEventListener('click', function (event) {
   taskInput.value = ''
 })
 
+taskList.addEventListener('click', function(event) {
+  console.log(event)
+
+  const target = event.target
+
+  if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+    target.classList.toggle('checked')
+  }
+})
+
 console.log(taskInput)
 console.log(taskInput.placeholder)
 console.log(taskAdd)
