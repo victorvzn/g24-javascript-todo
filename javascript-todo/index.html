@@ -6,7 +6,27 @@
   <title>Todo Básico</title>
 </head>
 <body>
-  
+  <main class="task">
+    <h1>Listado de tareas</h1>
+
+    <section class="task__wrapper">
+      <input
+        id="taskInput"
+        type="text"
+        class="task__input"
+        placeholder="Añade una tarea nueva..."
+        value=""
+      />
+      <button class="task__add">Añadir tarea</button>
+    </section>
+  </main>
+
+  <ul class="task__list">
+    <li>Tarea 1</li>
+    <li>Tarea 2</li>
+    <li>Tarea 3</li>
+  </ul>
+
   <script src="./main.js"></script>
 </body>
 </html>
