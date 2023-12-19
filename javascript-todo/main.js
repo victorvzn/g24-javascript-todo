@@ -16,6 +16,11 @@ taskAdd.addEventListener('click', function (event) {
   // button.innerText = 'Hola soy un botón dinámico!'
   // document.body.appendChild(button)
 
+  if (taskInput.value === '') {
+    alert('El campo es requerido')
+    return
+  }
+
   const li = document.createElement('li')
 
   let checkbox = document.createElement('input')
@@ -25,6 +30,11 @@ taskAdd.addEventListener('click', function (event) {
   let span = document.createElement('span')
   span.innerText = taskInput.value
   li.appendChild(span)
+
+  // TODO: Añadir un botón al li con el texto 'Borrar'
+  let button = document.createElement('button')
+  button.innerText = 'Borrar'
+  li.appendChild(button)
 
   taskList.appendChild(li)
 
@@ -38,6 +48,11 @@ taskList.addEventListener('click', function(event) {
 
   if (target.tagName === 'INPUT' && target.type === 'checkbox') {
     target.classList.toggle('checked')
+  }
+
+  // TODO: Añadir la funcionalidad al botón para que remueva una tarea
+  if (target.tagName === 'BUTTON') {
+    target.parentElement.remove() // Con esto eliminamos el li complementamente del DOM
   }
 })
 
