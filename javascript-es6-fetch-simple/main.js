@@ -8,7 +8,7 @@ const renderPosts = function (posts) {
 
   posts.forEach(post => {
     postList = postList + `
-      <div>
+      <div class="post">
         <h2>${post.id}: ${post.title}</h2>
       </div>
     `
