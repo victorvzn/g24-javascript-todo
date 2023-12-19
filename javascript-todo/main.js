@@ -11,11 +11,24 @@ taskAdd.addEventListener('click', function (event) {
 
   console.log('Hice click!')
 
-  const button = document.createElement('button')
-  button.innerText = 'Hola soy un botón dinámico!'
-  document.body.appendChild(button)
+  // MANIPULACION DEL DOM, para crear elementos dinamicamente en el body
+  // const button = document.createElement('button')
+  // button.innerText = 'Hola soy un botón dinámico!'
+  // document.body.appendChild(button)
 
-  
+  const li = document.createElement('li')
+
+  let checkbox = document.createElement('input')
+  checkbox.setAttribute('type', 'checkbox')
+  li.appendChild(checkbox)
+
+  let span = document.createElement('span')
+  span.innerText = taskInput.value
+  li.appendChild(span)
+
+  taskList.appendChild(li)
+
+  taskInput.value = ''
 })
 
 console.log(taskInput)
