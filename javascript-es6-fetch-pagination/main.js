@@ -1,10 +1,18 @@
 // console.log('Hola JS')
 let currentPage = 1
 
+const paginationPrev = document.querySelector('.pagination__prev')
 const paginationNext = document.querySelector('.pagination__next')
 
 paginationNext.addEventListener('click', (event) => {
   currentPage += 1
+
+  fetchCharacters(currentPage)
+    .then(data => renderCharacters(data.results))
+})
+
+paginationPrev.addEventListener('click', (event) => {
+  currentPage -= 1
 
   fetchCharacters(currentPage)
     .then(data => renderCharacters(data.results))
