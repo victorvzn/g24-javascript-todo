@@ -14,10 +14,14 @@ searchInput.addEventListener('input', (event) => {
   const filteredCountries = countryData.filter(country => {
     const loweredInputValue = inputValue.toLowerCase()
     const loweredName = country.name.common.toLowerCase()
+    const joinedCapital = country.capital.join(',') // Une todos los elementos de un arreflo en una cadena de texto
+    const loweredCapital = joinedCapital.toLowerCase()
+
+    console.log(joinedCapital)
 
     // TODO: Adicionalmente necesitamos filtrar por capital (10 minutos)
 
-    return loweredName.includes(loweredInputValue)
+    return loweredName.includes(loweredInputValue) || loweredCapital.includes(loweredInputValue)
   })
 
   renderCountries(filteredCountries)
