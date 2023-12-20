@@ -1,6 +1,28 @@
 // const url = 'https://restcountries.com/v3.1/all'
 const url = 'https://restcountries.com/v3.1/all?fields=name,flags,region,capital,population,languages,currencies,timezones'
 
+let countryData = [] // Lo voy a usar temporalmente para filtrar los países
+
+const searchInput = document.querySelector('.app__search')
+
+searchInput.addEventListener('input', (event) => {
+  // console.log('estoy escribiendo algo....')
+  const inputValue = event.target.value
+
+  // console.log(inputValue)
+
+  const filteredCountries = countryData.filter(country => {
+    const loweredInputValue = inputValue.toLowerCase()
+    const loweredName = country.name.common.toLowerCase()
+
+    // TODO: Adicionalmente necesitamos filtrar por capital (10 minutos)
+
+    return loweredName.includes(loweredInputValue)
+  })
+
+  renderCountries(filteredCountries)
+})
+
 const formatNumber = (number) => {
   return new Intl.NumberFormat('es-PE').format(number)
 }
@@ -49,4 +71,8 @@ const fetchCountries = async () => { // Devuelve una Promesa (Promise)
 }
 
 fetchCountries()
-  .then(data => renderCountries(data))
+  .then(data => {
+    countryData = data
+
+    renderCountries(data)
+  })
