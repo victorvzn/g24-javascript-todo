@@ -4,6 +4,7 @@ const url = 'https://restcountries.com/v3.1/all?fields=name,flags,region,capital
 let countryData = [] // Lo voy a usar temporalmente para filtrar los países
 
 const searchInput = document.querySelector('.app__search')
+const filterSelect = document.querySelector('.app__filter')
 
 searchInput.addEventListener('input', (event) => {
   // console.log('estoy escribiendo algo....')
@@ -25,6 +26,22 @@ searchInput.addEventListener('input', (event) => {
   })
 
   renderCountries(filteredCountries)
+})
+
+
+filterSelect.addEventListener('input', (event) => {
+  const value = event.target.value
+  
+  // console.log(value)
+
+  const filteredCountriesByRegion = countryData.filter(country => {
+    const loweredRegion = country.region.toLowerCase()
+    const loweredValue = value.toLowerCase()
+
+    return loweredRegion.includes(loweredValue)
+  })
+
+  renderCountries(filteredCountriesByRegion)
 })
 
 const formatNumber = (number) => {
