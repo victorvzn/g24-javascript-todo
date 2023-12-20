@@ -8,3 +8,15 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
+
+.app__character {
+  background-color: #ddeeaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: .5rem;
+  overflow: hidden;
+  padding: .5rem;
+  border: 3px solid rgb(143, 168, 68);
+}
